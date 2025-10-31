@@ -4,7 +4,7 @@ Sistema completo de generación de facturas, utilizando [FastAPI](https://fastap
 
 ## Autor
 
-- Nombre del Estudiante - @perfil_de_github
+- Lorena Quiñones Rodriguez - (https://github.com/Lorenqr/lpa2-taller2.git)
 
 ## Descripción del Proyecto
 
@@ -131,7 +131,7 @@ El frontend proporciona una interfaz web donde:
 
 - Editar `frontend/app/main.py` para crear la lógica de la consulta del API y generación del PDF
 - Editar `frontend/app/templates/index.html` para modificar el diseño de la interfaz Web
-- Editar `frontend/app/static/css/style.css` para modificar los estilos 
+- Editar `frontend/app/static/css/style.css` para modificar los estilos
 - Editar `frontend/app/static/js/app.js` para ajustar lógica de la interfaz, si se requiere
 
 ## Configuración Avanzada
@@ -219,4 +219,3 @@ http http://localhost:8000/facturas/v1/TEST-001
 La documentación interactiva de Swagger está disponible en:
 - `http://localhost:8000/docs` (Swagger UI)
 - `http://localhost:8000/redoc` (ReDoc)
-

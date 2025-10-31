@@ -6,6 +6,7 @@ app = FastAPI(title="API de Facturas Fake", version="1.0")
 
 fake = Faker("es_ES")
 
+
 @app.get("/facturas/v1/{numero_factura}")
 def get_factura(numero_factura: str):
     # Generar datos falsos para empresa y cliente
@@ -13,13 +14,13 @@ def get_factura(numero_factura: str):
         "nombre": fake.company(),
         "direccion": fake.address(),
         "telefono": fake.phone_number(),
-        "email": fake.company_email()
+        "email": fake.company_email(),
     }
 
     cliente = {
         "nombre": fake.company(),
         "direccion": fake.address(),
-        "telefono": fake.phone_number()
+        "telefono": fake.phone_number(),
     }
 
     # Generar entre 1 y 5 ítems de detalle
@@ -28,12 +29,14 @@ def get_factura(numero_factura: str):
         cantidad = random.randint(1, 10)
         precio_unitario = round(random.uniform(50, 500), 2)
         total = round(cantidad * precio_unitario, 2)
-        detalle.append({
-            "descripcion": fake.catch_phrase(),
-            "cantidad": cantidad,
-            "precio_unitario": precio_unitario,
-            "total": total
-        })
+        detalle.append(
+            {
+                "descripcion": fake.catch_phrase(),
+                "cantidad": cantidad,
+                "precio_unitario": precio_unitario,
+                "total": total,
+            }
+        )
 
     subtotal = round(sum(item["total"] for item in detalle), 2)
     impuesto = round(subtotal * 0.21, 2)  # IVA 21%
@@ -47,8 +50,7 @@ def get_factura(numero_factura: str):
         "detalle": detalle,
         "subtotal": subtotal,
         "impuesto": impuesto,
-        "total": total
+        "total": total,
     }
 
     return factura
-

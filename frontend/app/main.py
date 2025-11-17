@@ -212,7 +212,7 @@ def generar_pdf():
                 if isinstance(it, dict)
             )
         if impuesto is None:
-            impuesto = round(subtotal * (factura.get("tax_rate") or 0.19), 2)
+            impuesto = round(subtotal * (factura.get("tax_rate") or 0.21), 2)
         if total is None:
             total = round(subtotal + impuesto, 2)
 

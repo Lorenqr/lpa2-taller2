@@ -7,7 +7,7 @@ app = FastAPI(title="API de Facturas Fake", version="1.0")
 fake = Faker("es_ES")
 
 
-@app.get("/facturas/v1/{numero_factura}")  # corregir
+@app.get("/facturas/v1/{numero_factura}")
 def get_factura(numero_factura: str):
     empresa = {
         "nombre": fake.company(),
@@ -41,7 +41,7 @@ def get_factura(numero_factura: str):
         )
 
     subtotal = round(sum(item["total"] for item in detalle), 2)
-    impuesto = round(subtotal * 0.21, 2)  # IVA 21%
+    impuesto = round(subtotal * 0.19, 2)
     total = round(subtotal + impuesto, 2)
 
     factura = {

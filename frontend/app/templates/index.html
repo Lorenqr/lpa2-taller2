@@ -9,14 +9,16 @@
 <body>
     <div class="container">
         <h1>Generador de Facturas PDF</h1>
-        <form method="POST" action="/generar-pdf">
+        <div class="form-card">
             <div class="form-group">
                 <label for="id_factura">ID de Factura:</label>
-                <input type="text" id="id_factura" name="id_factura" required>
+                <input type="text" id="id_factura" name="id_factura" required placeholder="Ej: 555">
             </div>
-            <button type="submit">Generar PDF (Descargar)</button>
-            <div class="divider"></div>
-        </form>
+            <div class="button-group">
+                <button type="button" id="preview-btn" class="btn-preview">Vista Previa</button>
+                <button type="button" id="download-btn" class="btn-download">Descargar PDF</button>
+            </div>
+        </div>
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -28,6 +30,18 @@
             {% endif %}
         {% endwith %}
     </div>
+
+    <!-- Contenedor de Vista Previa -->
+    <div class="preview-container" id="preview-container" style="display: none;">
+        <div class="preview-header">
+            <h2>Vista Previa de la Factura</h2>
+            <button type="button" id="close-preview" class="btn-close">✕ Cerrar</button>
+        </div>
+        <div class="pdf-wrapper">
+            <iframe id="pdf-preview" frameborder="0"></iframe>
+        </div>
+    </div>
+
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

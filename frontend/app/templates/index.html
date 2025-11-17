@@ -14,7 +14,8 @@
                 <label for="id_factura">ID de Factura:</label>
                 <input type="text" id="id_factura" name="id_factura" required>
             </div>
-            <button type="submit">Generar PDF</button>
+            <button type="submit">Generar PDF (Descargar)</button>
+            <div class="divider"></div>
         </form>
 
         {% with messages = get_flashed_messages() %}
@@ -27,5 +28,6 @@
             {% endif %}
         {% endwith %}
     </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

@@ -3,17 +3,17 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
-      - id: trailing-whitespace      # Elimina espacios finales
-      - id: end-of-file-fixer        # Asegura fin de archivo con nueva línea
-      - id: check-yaml               # Valida archivos YAML
-      - id: check-added-large-files  # Rechaza archivos grandes
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
 
   # Ruff (linting y formateo)
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.6
     hooks:
       - id: ruff
-        args: [ --fix ]              # Auto-corrige errores
+        args: [ --fix ]
       - id: ruff-format
 
   # Pytest (pruebas)
